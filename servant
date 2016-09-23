@@ -1,10 +1,23 @@
 #!/usr/bin/env python
 
 import click
+import os
+import json
+import sys
+
+configuration_file = os.path.expanduser("~/.servant-cli.json")
+
+# Try to load configuration file
+if os.path.isfile(configuration_file):
+  with open(configuration_file, 'r') as f:
+    config = json.load(f)
+else:
+  print "Couldn't find configuration file \"" + configuration_file + "\""
+  sys.exit(1)
 
 @click.group()
 def servant():
-    """Command line interface for Servant virtual machine."""
+    """Command line interface for Servant - the Vagrant based web-development virtual machine."""
     pass
 
 @servant.command()
