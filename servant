@@ -4,6 +4,7 @@ import click
 import os
 import json
 import sys
+from subprocess import call
 
 configuration_file = os.path.expanduser("~/.servant-cli.json")
 
@@ -15,26 +16,39 @@ else:
   print "Couldn't find configuration file \"" + configuration_file + "\""
   sys.exit(1)
 
-@click.group()
+# Inherit shell environment
+env = {}
+env.update(os.environ)
+env['VAGRANT_CWD'] = os.path.expanduser(config["servant_root"])
+
+@click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def servant():
     """Command line interface for Servant - the Vagrant based web-development virtual machine."""
     pass
 
 @servant.command()
-def up(**kwargs):
-    pass
+def up():
+    """Start/boot servant machine"""
+    call(["vagrant", "up"], env=env)
+    return
 
 @servant.command()
 def down(**kwargs):
-    pass
+    """Shutdown and power off servant machine"""
+    call(["vagrant", "suspend"], env=env)
+    return
 
 @servant.command()
 def reboot(**kwargs):
-    pass
+    """Reboot servant machine"""
+    call(["vagrant", "reload"], env=env)
+    return
 
 @servant.command()
 def reload(**kwargs):
-    pass
+    """Run provisioning formulae"""
+    call(["vagrant", "provision"], env=env)
+    return
 
 @servant.command()
 def services(**kwargs):
