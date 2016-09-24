@@ -40,7 +40,7 @@ def reload(**kwargs):
 def services(**kwargs):
     pass
 
-@servant.group()
+@servant.command()
 def projects(**kwargs):
     pass
 
