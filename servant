@@ -44,5 +44,9 @@ def services(**kwargs):
 def projects(**kwargs):
     pass
 
+@servant.command()
+def ssh(**kwargs):
+    pass
+
 if __name__ == '__main__':
     servant()
