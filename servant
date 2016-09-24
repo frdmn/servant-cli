@@ -60,7 +60,9 @@ def projects(**kwargs):
 
 @servant.command()
 def ssh(**kwargs):
-    pass
+    """SSH into servant"""
+    call(["vagrant", "ssh"], env=env)
+    return
 
 if __name__ == '__main__':
     servant()
