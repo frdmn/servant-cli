@@ -5,29 +5,10 @@ Command line interface for the [**Servant**](https://github.com/frdmn/servant) v
 ## Installation
 
 1. Make sure you've installed all requirements
-2. Clone this repository:
+2. Install using using `pip`:
 
     ```shell
-    git clone https://github.com/frdmn/servant-cli
-    cd servant-cli
-    ```
-
-3. Install the Python dependencies using `pip`:
-
-    ```shell
-    pip install -r requirements.txt
-    ```
-
-4. Copy configuration file into home folder:
-
-    ```shell
-    cp config.json ~/.servant-cli.json
-    ```
-
-5. Adjust **Servant** root directory in the configuration file:
-
-    ```shell
-    vi ~/.servant-cli.json
+    pip install git+git://github.com/frdmn/servant-cli.git@master
     ```
 
 ## Contributing
