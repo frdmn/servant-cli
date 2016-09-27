@@ -1,6 +1,6 @@
 # servant-cli
 
-Command line interface for the [**Servant**](https://github.com/frdmn/servant) virtual machine.
+Command line interface for the [**servant**](https://github.com/frdmn/servant) virtual machine.
 
 ## Installation
 

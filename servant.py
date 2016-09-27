@@ -26,7 +26,7 @@ env['VAGRANT_CWD'] = os.path.expanduser(config["servant_root"])
 
 @click.group(context_settings=dict(help_option_names=['-h', '--help']))
 def servant():
-    """Command line interface for Servant - the Vagrant based web-development virtual machine."""
+    """Command line interface for servant - the Vagrant based web-development virtual machine."""
     pass
 
 @servant.command()
