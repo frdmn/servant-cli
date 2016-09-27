@@ -5,7 +5,7 @@ Command line interface for the [**servant**](https://github.com/frdmn/servant) v
 ## Installation
 
 1. Make sure you've installed all requirements
-2. Install using using `pip`:
+2. Install using `pip`:
 
     ```shell
     pip install git+git://github.com/frdmn/servant-cli.git@master
