@@ -4,16 +4,20 @@ import os
 import json
 import sys
 from subprocess import call
+import urllib2
 
 configuration_file = os.path.expanduser("~/.servant-cli.json")
 
-# Try to load configuration file
-if os.path.isfile(configuration_file):
-  with open(configuration_file, 'r') as f:
-    config = json.load(f)
-else:
-  print "Couldn't find configuration file \"" + configuration_file + "\""
-  sys.exit(1)
+# Make sure default configuration file exists, if none is found
+if not os.path.isfile(configuration_file):
+  print "Creating configuration file..."
+  jsonfile = urllib2.urlopen("https://raw.githubusercontent.com/frdmn/servant-cli/master/servant-cli.json")
+  with open(configuration_file, 'wb') as f:
+    f.write(jsonfile.read())
+
+# Load configuration file
+with open(configuration_file, 'r') as f:
+  config = json.load(f)
 
 # Inherit shell environment
 env = {}
