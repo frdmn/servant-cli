@@ -50,9 +50,31 @@ def reload(**kwargs):
     call(["vagrant", "provision"], env=env)
     return
 
-@servant.command()
+@servant.group()
 def services(**kwargs):
+    """Control Apache, PHP-FPM and MySQL server"""
     pass
+
+@services.command()
+@click.argument('action', type=click.Choice(['restart', 'start', 'status', 'stop']))
+def apache(action):
+    """Control Apache2 web server"""
+    click.echo(action)
+    return
+
+@services.command()
+@click.argument('action', type=click.Choice(['restart', 'start', 'status', 'stop']))
+def php(**kwargs):
+    """Control PHP-FPM"""
+    click.echo(action)
+    return
+
+@services.command()
+@click.argument('action', type=click.Choice(['restart', 'start', 'status', 'stop']))
+def mysql(**kwargs):
+    """Control MySQL database server"""
+    click.echo(action)
+    return
 
 @servant.command()
 def projects(**kwargs):
